@@ -1,0 +1,7 @@
+1. when you are making a get request by id , and if no result is found then throw the error  , on the other hand if you 
+making the get request using the params then no result is found then it should not throw the error . This params get call
+should have all the params in the one call and shoudl return the list of objects for this .
+if search parameter are  many then use the post request for this 
+
+2. no crud operation will happen without coming api layer in between 
+
