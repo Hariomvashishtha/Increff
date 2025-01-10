@@ -1,0 +1,242 @@
+why  we need cloud computing, as we need to buy a stack of the server so sometimes we have to pay even when we do not need them which cost us very heavily so we need to use the cloud computing 
+service to devlop and  run our application 
+
+we have to more focous on tech infra instead of the business goal so need of this 
+traffic  is  not consttant at all the time , sometimes i need more than usual and sometimes i need not need , so upscaling  is always an issue in this 
+large amount of data is gen day  day today 
+today everthing is done online , that is digital data  , so need space to maintain this data , all this maintennace is handled by the cloud , move your data to the cloud , cloud with 
+unlimited  space , cloud help us to rent the service and pay for what you use and focous on the business goal 
+
+store data on remote server , process data on this server , access data via internet , world is accessible and manage as you want 
+
+
+ ###########################  service model #####################################
+ based on need of the user cloud has models , iaas m pass, saas as you have
+
+ saas -> cloud applicaton give lease application or software which are owned by them , gamil 
+ passs=> craete your own application , google app engine
+ iaas-> provide reosurce over internet  
+
+
+ ######deployment model #########
+ public cloud , private cloud , hybrid cloud 
+
+
+ ###########  aws ####################
+ amazon ec2 -> this is ust like the server 
+ rds , s3 , lambad (computing server but does not let you host )
+
+##########################   MICROSOFT AZURE ####################
+build deploy application in the azure envioenment 
+
+usecase ->>>>>>>>>>>>>>>>>
+host the website this is the use case , 
+
+                                        server 1
+                                        server 2            database 
+user base           load balancer        server 3           file system    ths is basically a general structure   (address of file from db then go to the file)
+
+
+when file is added , so it is first added to the db with unique name then it is uploade in the file system 
+
+
+
+server    provied by app service 
+load balancer     azure load balanceer and auto storing 
+database mysql 
+file system  blob storage 
+
+
+app service >>>>>>>>>>>>>>  
+vm  app service   function 
+
+vm  is computer , anything you can do , need this much ram , this much storage and give me computer , it will give ip and password , then you can connect , now this is your computer 
+configure vm , install software , things done manually 
+
+app service -> automated version of the vm , service are more focoused ,  do not do anything , just specify lang and specify config , my website deploy auto matically ,
+it deploy application for us 
+
+function _. server less arch , upload your code and exxute it, not deploy our application , just do background application ,
+iamge on instan , (apply filter , compress image ) if these code are included then it will load the server and   so these things are done by usin the functions
+
+
+
+blob staorge -<
+file system where you storing your files 
+
+blob staorge   queue storage     back up 
+
+
+
+queue storage -> sync task , process 1   process 2 process 3 (bundle them added them in the queue storage) , it basically  queue the task which can read sequentially 
+function interact with the queue storage and do them one by one 
+
+backup -> store infrequent data at very low cost , storage is cheaper in this, they use magnetic tapes and ssd, time to retrive this is more that is why it is cheap , but it is worth 
+
+
+
+blob  storage is basicallu all in one storage which can store any type of the file 
+
+mysql for azure ##################################
+
+
+auto sacling and load balanceer ##################
+auto scale up and down as our need (no of server changing regularly so load balancer is neeed for this) , equally distribute the req , cpu inc due to the load balanceer  
+cpu usage dec, then reduce the server this is the basics ,  load balancer see no of server runnnin and distribute services according to that 
+
+
+how to launch ap service in the azure env #########################
+resouce group is the collection of all the resourcs -> while creating app service it will ask you to use the existing ones or create new resources 
+app service plan -> what type of the computer you need 
+application insight will give you monitoring tools 
+
+
+
+blob storage -<>  file system to store the files 
+click on storage aac, then add 
+
+
+mysql -> ckick=k on database , mysql azure database 
+
+sacling can be done horizontal and vertical   
+horizontal > inc the number of servers            verticeal -< inc more resource /capicity of the server  i3 to i5 to i7 ( always have 1 machine)
+scale up  is called vertical scaling by adding more resource , inc cpu , inc ram , this is useful when your application running heavily on single sytem and not designed 
+for the distribute system 
+
+scale out -< this is called horizionztal saling , add the number of the instance 
+
+there are rules to add or dec the resource as per the rules define in the app services 
+
+
+
+                                                                                             mysql for the azure 
+userbase        loadbalancer             this is sacle up app service       
+                                                                                              blob storage 
+
+
+how to connect with azure database ##################  this can be done using the terminal or command line 
+before this  you have to add your computer ip address to the microsft azure then onlu run this command otherwise it will show like you ip does not have access to the  database server
+go to c/mysql/version/bib/sql     mysql -h <datbasename from azure copy?  -P  <port no 3306> -u <username > -p <password>
+
+
+now cretae database in myswl    cretae database edureka     use edureka     craete table image(name varchar(20))
+
+then show tables . run these command to do creation of table in the microsft azure 
+
+
+############## microsft   azure storae    doamin ##########################''
+
+why storage  storage vs doamin   what is azure storage        componenet of azure storae ` hands on deployment
+
+why stoarge we need -> 
+so i need to store the task which is to be process by the backend server , then one by  one they will be operated  , they pick up job from this storage , these jobs should be equally distributed
+on these server , then store an result in the database , so we can not store result directly in the databse as we have to optimize query time in future 
+
+storage ->store all the jobs (queue serice is given by this storage)  
+          iamge details is stored in db and storing image in the storage 
+
+
+                                                                                    backend server
+                                                                                    backend server
+                                                                                    backend server
+website server               but i need to process task on the backend server       backend server
+                                                                                    backend server 
+                                                                                    backend server
+
+srorage -> image, music,videos        database ->meta data of the file (loction , properties , related data ) structured , addded in the db , main diff between the storage and the db 
+
+azure storage -> storage account first you have to make 
+
+
+
+
+#######  componenet OF THE AZURE STORAGE #############
+BLOB SERVICE ->  file system service m, upload any file,  like s3 in the aws , access by any one on planet by given poermission  
+
+queue -> data strcuture on fifo based , 
+
+file system -> exactly like blob, mounted like drive in your own computer , auth protocol with this durinf file transaxtion 
+
+tables-> store large amount of the strcuture data , service is nosql  , 
+if want to add more column , does not change any thing , just add that , it will handle that autmatically 
+
+
+##############  Network domain in the azure #################
+vm, vn , componenet of vn , hands on demo of the vm and vn 
+vm ->rather on purchasing , rent computer on the cloud .  same is called ec2  in the aws 
+
+
+virtaul Network-> act as communication between the resourc launch on the cloud . suppose you have launced web server and datbase server on the cloud , now you want to interact the web server with 
+database server , then you need virtal  network for this , no wires , switch , routes to connect these resouce . so this is complely a logical connection 
+
+
+vn-> this is just representation of your network on the cloud . your server is on cloud but your company will feel like that it is on your netwrok 
+various componenet -< subnets (each subnet has vm ) and each subnet is unique, we can configure properties of the subnet( public -> has internet , other private can not have )
+network security groups-> these are like the firewall  which filter the traffic comin in, and going out of your vms. These setting can be easily done by the azure 
+
+
+                            vn 
+                subnet (vm)              subnet (vm)
+                nsg                   nsg              this is generally structure for this 
+
+i am attachin firewall to the subnet not directly with the vm ,  but vm has that properties 
+
+
+############  azure active directory #####################
+
+azd-> microsoft multi tenant(many org) , cloud based directory and identity management service that combines core directory services , application access management and identity protection into 
+a single solution.  
+
+1000 2000 credentials for service ( 10 org) , this can be problem , diff access to ord, diff security standered for each org , all this is huge problem . this acts as middle ware and take care of 
+all . the way i set the rules and incorporate these rules .
+
+window ad  vs azure ad -> there is diff in these . 
+window has lot of layers ,  many layers are combined in the azure .
+
+
+service audience -> it adminstrator-> single sign on logins 
+                   application devlopers-> 
+                   online customers 
+
+###########################  Azure devops ####################
+this is set of practise intended to reduce time between commiting a change to a system and change  being placed in normal production while ensuring high quality 
+
+azure boards ->  who works on project management and scrums  (epic , task, stories )
+azure repos-> here devlopment and store all source control 
+azure pipelines-> build your code (dev has responsiboiliy on local mach but not good way) (if has some special dependency )  pipelines will do the build 
+               release code in which env you want(dev, test)
+
+azure test plans=>  manually or automated testing 
+    after that release to respective env 
+
+azure artefacts->  10 project , have some common dependency ,  put all these dependency and put them at the single place 
+
+
+#######################  Azure data factory #########################
+data is generating day by day in huge number  and it can be diff formats  , to bring data on cloud we have process and manage it better .
+this data factory help us to automate( better process and manage) this data . 
+this is cloud based intregation service allow us to craete data driven workflows in the cloud for movement and transformation of the data .
+also help us to analytics to the data , after processing data , make useabl to data lake to consume like hadoop . 
+helps us to connect and collect the data -> transformation and encrich the data -< then publish th data (power bi tool and dashboard , business intellisense) then monitot the data 
+
+
+########## data factory concepts ###############
+pipelines-> logical group of activites that perform a unit of work 
+activity -< process step in the pipelines
+datasets => datasets representation(data strcuture in the data stores)     
+linked services -> information needed to connect to externel sources 
+
+
+####### data lake #########
+it can hold data of any type and any size . allow us to do the operational analytics
+
+
+#####################    azure iot ######################
+connecting inanimate  devices over the internet without human intervention 
+azure bus service  > single dimension message service 
+
+
+
+
+
+
