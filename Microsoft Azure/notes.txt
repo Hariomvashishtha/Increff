@@ -236,7 +236,110 @@ connecting inanimate  devices over the internet without human intervention
 azure bus service  > single dimension message service 
 
 
+cloud computing is the service delivery model  over the internet 
+
+disaster recovery ->  is the ability of the system to recover from the disaster  , make duplicate of the server and data store 
+if one got failed then we can use the other one  , changes the dns route of the https request to the other one 
+
+Availability ->  is the ability of the system to be operational and accessible when needed ( uptime/(uptime+downtime))
+
+
+consumption based model ->  pay for what you use, this is the model of the cloud computing 
+
+
+data center ->  this is the place where the data is stored , it is a physical place where the servers are located , own power ,
+own cooling system , own network , own security 
+
+regions ->  this is the collection of the data center , it is a geographical area where the data center is located , it is a collection of the data center 
+these are globally distributed , datacenter are connected by high speed private network , low latency network (<2ms)
+some services are available in all regions and some are not , so they are called as global services /regions
+
+
+Availability zone ->  this is the collection of the data center , it is a geographical area where the data center is located , it is a collection of the data center 
+this is made to handle the data center failure , if one data center is failed then we can use the other one 
+two service catogries -> zonal service(vm,disk)   zone redundant service (sql and the storage)
+supporetd regions can have three or more zones ,   a zone can have one or more data center 
+
+
+Region pair -> each region is paired with another region in the same geography , this is to handle the disaster recovery (data residency 
+is maintained for the disaster recovery)
+
+
+resouce group ->  this is the collection of the resources , logically related resources are grouped together 
+each resource should be in only one resource group , resource group can not be nested 
+Resource group have their own location assigned to them ( two resource of same group can be in different region )
+
+
+virtaul machine are part of the infrastructure as a service (iaas), they have auto scale feature (manual or auto)
+
+
+Container> they do not have os , they use host os (so they emulate os as vm emulate the hardware), so they are more lightweight than the vm ,
+they response quicker to the request (or demand)
+
+Azure Container Instances(service) ->  this is the service to run the container on the azure cloud , it is a container as a service 
+platform as a service (paas) ->  this is the service to run the application on the azure cloud , it is a platform as a service 
+serverless ->  this is the service to run the application on the azure cloud , it is a serverless as a service 
+
+Azure Kubernetes Service(aks) ->  this is the service to run the container on the azure cloud , it is a container as a service 
+
+
+app service ->  this is the service to run the application on the azure cloud , it is a app as a service , platform as a service 
+
+
+azure function ->  this is the service to run the application on the azure cloud , it is a function as a service , platform as a service 
+serverless, two plans(dedicated plans and consumption plans) , designed for the micro and nano service
 
 
 
+infrastructure as a service -< vms 
+platform as a service -> container, kubernetes, app service, function
 
+
+
+#########################  azure network service #########################
+to connect the resources on the cloud , we need to use the network service ( to connect the cloud we need network )
+
+azure virtal network-< this is divided ins subnets and each subnet has vm , (enable communication of the resources with each other)
+vnet peering can allow cross region communication 
+
+
+content delivery network ->  this is the service to deliver the content to the user , it is a content as a service , 
+define  content and minimize the latency , point of presence (pop) ->  with many location
+
+
+#########################  azure storage service #########################
+storage account-> group of service that includes blob, queue, file, table, disk, (cheap, highly scalable, durable, highly available)
+
+
+blob storage -> binary large object , store unstructured data , store any type of the file .
+there are three tiers -> hot(frequently accessed), cool(less frequently accessed), archive(least frequently accessed, rarely , if ever )
+queue storage -< this is for small message ,  designed for  async communication between the services 
+table storage -< this is for semi structured data ( no need for foriegn key, joins , strict schema) , designed fast access and low cost 
+file storage ->  this is for file share (file accessed through the shared drive protocol)
+
+
+Big data has 3 dimension -> volume, velocity, variety 
+
+
+serverless-> this is cloud hosting execution envioenment that allows you to run your code without managing the servers (abstrating the infra)
+
+
+azure funtions-> serverless coding platform (function as a service faas)
+
+
+
+#########################  azure devops service  #########################
+this is combination for the  dev + ops (devlopment + operation),  main aim to reduce the time between commiting a change to a system and change  being placed in normal production while ensuring high quality  , shorten the devlopment cycle
+
+
+############# azure network security groups #########################
+designed to filter the traffic in and out of the vms , filtering is basically controlled by the rules (source,dest ip, port, protocol, direction
+priority )
+
+application security group-> this is designed to do grouping of the vms (reduce the maintennace effort)(assigned a asg instead of explict ip address)
+
+
+user defined routes are handled azure route table (route table is a collection of routes)
+
+firewall ->  this is a service to filter the traffic in and out of the vms , it is a network as a service (n/w security service)
+dos-> denioal of service     ddos -< distributed denial of service (dos)(dos from multiple source)
