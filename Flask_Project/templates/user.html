@@ -1,0 +1,38 @@
+<h1>Hello {{user_name | upper | capitalize}}</h1>   <!-- | we are using filter for this  -->
+  <!-- | upper | capitalize | safe | lower | title | trim | striptags   is a filter -->
+
+
+
+explain safe filter: <p>{{user_name | safe}}</p>  <!-- safe filter is used to render html tags --> if you pass those html tags 
+to work them fine you have to use the safe filter.
+
+explain striptags filter: <p>{{user_name | striptags}}</p>  <!-- striptags filter is used to remove html tags from the string. -->
+
+explain title filter: <p>{{user_name | title}}</p>  <!-- title filter is used to capitalize the first letter of each word. -->
+
+explain trim filter: <p>{{user_name | trim}}</p>  <!-- trim filter is used to remove the white spaces from the string. -->
+
+<!--  apply for loop for favourite_food-->
+<ul>
+  {% for food in favourite_food %}
+    <li>{{food}}</li>
+  {% endfor %}
+</ul>
+
+<!--use the if in favourite_food-->
+<ul>
+  {% for food in favourite_food %}
+    {% if food == 'Pizza' %}
+      <li>{{food}}</li>
+    {% endif %}
+  {% endfor %}
+</ul>
+
+  <!-- how to access first element of the favourite_food-->
+    <p>{{favourite_food[0]}}</p>   
+    <!--{{favourite_food.0}}-->
+
+    <!-- how to access last element of the favourite_food-->
+    <p>{{favourite_food[-1]}}</p>
+
+    <!-- |string  | reverse these are also other filters which can be used -->

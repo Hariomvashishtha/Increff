@@ -1,0 +1,1 @@
+document.getElementById("demo").innerHTML = "this is creared by myjs.js file";

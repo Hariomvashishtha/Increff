@@ -1,0 +1,44 @@
+
+{% extends "navbar.html" %}
+
+
+
+{% block content %}   <!-- this is the block content which is defined in the navbar.html -->
+
+{% for message in get_flashed_messages() %}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    Hey {{name }}   {{message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{% endfor %}
+
+
+
+
+{% if name %}
+  <h1>hello {{ name}}</h1>
+  <br>
+  <image src="{{url_for('static', filename='images/m1.png')}}" alt="image"  width="200" height="200">
+    <br>
+    <br>
+    <p id="demo"> this is stuff ...</p>
+
+<script src="{{url_for('static', filename='js/myjs.js')}}"></script>
+{% else %}
+  <h1>What is your name ? </h1>
+  <br>
+  <form method = "POST">
+      {{form.hidden_tag()}}
+      {{form.name.label(class="form-label")}}
+     {{form.name(class="form-control")}}
+      <br>
+      {{form.submit(class="btn btn-primary")}}
+
+  </form>
+
+
+
+
+
+  {% endif %}
+{% endblock %}
