@@ -343,3 +343,12 @@ user defined routes are handled azure route table (route table is a collection o
 
 firewall ->  this is a service to filter the traffic in and out of the vms , it is a network as a service (n/w security service)
 dos-> denioal of service     ddos -< distributed denial of service (dos)(dos from multiple source)
+
+
+
+
+function app -> this is serverless computing service , which is basically event triggered( without explictly managing the infrastructure)
+adv-< serverless , pay per use , choice of lang , bring your own dependency , 
+we can run azure function on various events -< http request , sehcdule timer , document addition or deletion in db 
+
+
