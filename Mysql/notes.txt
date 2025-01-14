@@ -1,0 +1,89 @@
+use english language
+
+####################################rank() explain in mysql -> ########################
+this will rank the salary of the employees in the department( if there is a tie, the next rank will be the skiped)
+SELECT 
+    employee_id,
+    department_id,
+    salary,
+    RANK() OVER (PARTITION BY department_id ORDER BY salary DESC) AS rank
+FROM employees;
+
+
+
+####################################window function explain in mysql -> ########################
+Definition: A window function performs calculations across a set of table rows that are related to the current row, without collapsing the rows into a single output like aggregate functions do.
+Key Features:
+Uses the OVER() clause.
+Can include partitioning and ordering to define the "window."
+Common Window Functions:
+
+ROW_NUMBER(): Assigns a unique number to each row.
+RANK(): Assigns ranks with possible gaps for ties.
+DENSE_RANK(): Similar to RANK() but without gaps.
+SUM(), AVG(), etc., applied over a window.
+
+SELECT 
+    employee_id,
+    salary,
+    SUM(salary) OVER (PARTITION BY department_id) AS total_department_salary
+FROM employees;
+
+
+
+#################################### common table expression explain in mysql -> ########################
+A temporary result set that you can reference within a SQL statement. It improves readability and modularity.
+it is defined with ( with keyword)
+WITH cte_name AS (
+    SELECT column1, column2, ...
+    FROM table_name
+    WHERE condition
+)
+SELECT column1, column2, ...
+FROM cte_name;
+
+
+
+
+
+
+#################################### explain partitioning  in mysql -> ########################
+A subset of rows in a dataset that you can define using the PARTITION BY clause within a window function. Each partition acts as an independent group for computations.
+
+SELECT 
+    employee_id,
+    department_id,
+    salary,
+    RANK() OVER (PARTITION BY department_id ORDER BY salary DESC) AS rank
+FROM employees;
+
+
+SELECT 
+    employee_id,
+    department_id,
+    salary,
+    AVG(salary) OVER (PARTITION BY department_id) AS avg_department_salary
+FROM employees;
+
+
+
+
+
+#################################### explain all concept in the one single complex query-> ########################
+find all the top3 applicants with highest salary in each department 
+WITH RankedSalaries AS (
+    SELECT 
+        employee_id,
+        department_id,
+        salary,
+        RANK() OVER (PARTITION BY department_id ORDER BY salary DESC) AS rank
+    FROM employees
+)
+SELECT 
+    employee_id,
+    department_id,
+    salary,
+    rank
+FROM RankedSalaries
+WHERE rank <= 3;
+
