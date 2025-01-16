@@ -352,3 +352,30 @@ adv-< serverless , pay per use , choice of lang , bring your own dependency ,
 we can run azure function on various events -< http request , sehcdule timer , document addition or deletion in db 
 
 
+
+
+#########################  azure functions  #########################
+these are solution to run small peice of code(function) on the cloud without managing the infrastructure.
+
+why to use function apps-> as they support multiple languages , easy to deploy , pay per use , can bring your own dependency , simplfies intregation
+
+function is just piece of code , but to run this code , we need some trigger
+
+# give me some code for function app in python
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Azure Cosmos DB is a globally distributed, multi-model database service offered by Microsoft. It provides a fully managed NoSQL database service de

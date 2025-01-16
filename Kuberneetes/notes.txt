@@ -1,0 +1,57 @@
+1.k8s -> kubernetes is the platform that help to manage the containerized application. this is open source platform.this is used for the 
+scaling and automating deployment , scaling and management of the containerized application.
+
+2.k8s support different types of the resourcs like pods , services , deployments , volumes , secrets , configmaps , etc. not limited to physical machines.
+
+3. conatiner orchestration platform ->   conatiner ( all musical install)  k8s( master node)
+
+we always have multiple nodes as backup in the server ,  how to  handle  the management of the multiple nodes. so k8s came in the picture.
+
+
+############# infrastructure of kubernetes ############
+cluster is the group of nodes, master node is the one which is responsible for the management of the cluster and worker node is the one which is responsible for the running of the application. 
+
+
+kubernetes have a api in the master node and it is connected to the worker node via these api.
+in the worker nodes kubernetes have a kubelet which is the agent that is responsible for the communication between the master node and the worker node.
+it is also possible that the worker node is also the master node. one of worker node can be the master node .
+
+
+when you set up kubernetes or deploy the kubernetes cluster then you have to set up the master node and worker node. you get a cluster().
+
+
+what is pod in kubernetes-> this is smallest unit of the kubernetes.  A single instance of the running processor in the clsuter .
+it can run one or more containers  and share the same resources and network space.
+
+cluster has multipel server -> isme hamaree containerized apps hote hai , ye app pods k andar run ho rahe hai.
+
+
+
+      ############   infrastructure of the master node ############
+      api server 
+      sehedular    -> assigne node to newly created pod
+      etcd         -> key value store for the kubernetes cluster( having all the cluster data )
+      control manager  -< responsible for mmanging the state of the clsuter
+
+
+
+      ##### components of the worker node #####
+      kubelet -> responsible for the communication between the master node and the worker node. make sure that conatiner is ruuning on pod.
+      kube proxy -> responsible for the network communication between the pods.
+      container runtime -> responsible for the running of the container. ( exmaple is docker)
+
+
+
+      1. container orchestration  2. scalability  3. availability  4. load balancing   5. rollback and rollout
+
+
+1.it does the automatic scaling of the application depends on the useage and the traffic.
+2.lifecycle management of the application( autonating deployment and updates , rollback to prev on failure )
+3. declare the desired state and k8s works in background to make sure that the desired state is reached(maintained) or recover from failure.
+4.auto restart , auto replication , 
+4. ability to add storage dynamically.( persistent storage)
+5.load balancing between the multiple pods.
+
+
+
+

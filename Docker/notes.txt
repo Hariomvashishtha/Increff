@@ -1,0 +1,71 @@
+you build an app ( node v 16 , redis v6)
+
+new devloper   join the team  ( install node v 20 ,  redis v 7) try to run the applicants
+1. first problem is you have to install  all the dependencies  manually
+2. if app is running or compatible with only v16 then it will fail with the version 20 automatically , so this is second problem
+3. suppose app is using cli command and laoptops are different then it will fail to run the app ( same command will not work on different laptops)
+these problem devloper identified when they were working on the same project with large team 
+4. if we want to deploy this app on the prodcution server so we have to install the same env there as well so again issue will come 
+this led to the classical problem of the tech -> it works on  the my machine 
+
+
+now docker came that help me to make the container ( this is service help to make , destroy , run the container)
+now what is this container ->   (code + all dependencies + all the libraries + all the tools ) this is now act as a one unit 
+what is good things about the container ->  they work on the all machines( they do not change any thing on machine to run the app)
+
+
+properties of the container ->  they are portable( so we can share code and dependencies to the different team members)
+they are lightweight ( they are not heavy like the virtual machine)( easy to deploy , destroy , run the container)
+
+
+Dockerfile(image)-> this is basically a executable file that contain the instruction to build the container. using this single image 
+we can build the multiple container.when we say we are sharing the container actually we are sharing the image .
+image is static snapshot of the (code + all dependencies + all the libraries + all the tools ).
+
+as we see when have class and object then class in itself do not have any resource and not take memory. it is just a blueprint for the object.
+it is the object which will take the memory and resource. 
+
+similarly image is the blueprint for the container.it does not take memory and resource. it is just a blueprint for the container.
+conatiner actually take  up the resource and memory at the system level. Conatiner is like the instance of the image.
+
+
+there is platform docker hub which is the repository of the image.( to contain all the docker image). we can upload these images on the 
+docke hub and we can download (or other team member can download) the image from the docker hub.
+
+
+# all docker commands
+docker --version
+docker pull <image_name>  ( to pull the image from the docker hub )
+docker run <image_name> ( to run the image , convert the image to the container)
+docker build -t <image_name> . ( to build the image  in interactive mode)
+docker build -t <image_name> .
+docker ps # to see the running container
+docker ps -a # to see the all container
+docker stop <container_id> # to stop the container
+docker rm <container_id> # to remove the container
+docker rmi <image_name> # to remove the image
+
+
+
+
+how virtual machines are different from the container(docker)
+
+
+      application layer ( excel , music , browser , etc)  ( there is now new env docker conatiner ki apps hai , we are able to see )
+      operating system layer ( windows , linux , mac)        docker basically use the host os and virtualize the application layer
+      hardware layer ( cpu , memory , disk)
+
+
+
+vm has there own kernel , so they virtualize the applicatio layer  but also they virtualize the os layer 
+
+
+
+
+adv of vm is that they are basically conmpatible to all the machines, but docker is not compatible to all the machines. 
+it is only compatible to the linux based system. and iamges are alos linux bases . to solve this problem we need 
+application like docker desktop which is the application that help to run the docker on the windows and mac os.
+what does this docker desktop do -> it add a light weight hypevisior layer which internallly use linux based distribution.
+
+
+

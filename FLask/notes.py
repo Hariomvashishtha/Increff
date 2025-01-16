@@ -674,3 +674,30 @@ class Movie(me.Document):
 # frozen set is immutabale form of the set in which no read or write operation can be performed.but this makes them hashable
 # and can be used as the key in the dictionary
 
+
+
+
+def hello_world():
+   return "hello world"
+app.add_url_rule("/", "hello", hello_world)
+# this add_url_rule is used to  bind the url in the function 
+
+
+# this is for the jinja template in the flask
+# {% ... %} for Statements
+# {{ ... }} for Expressions to print to the template output
+# {# ... #} for Comments not included in the template output
+# # ... ## for Line Statements
+
+
+# Flask.abort(code)
+# this is used to raise the error in the flask 
+
+# {% with messages = get_flashed_messages() %}
+#    {% if messages %}
+#       {% for message in messages %}
+#          {{ message }}
+#       {% endfor %}
+#    {% endif %}
+# {% endwith %}
+# this is for the flash message in the flask 
